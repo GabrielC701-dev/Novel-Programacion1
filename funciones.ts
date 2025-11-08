@@ -20,7 +20,7 @@ export function leerNumero(pregunta: string): any {
     } while (!valido);
 }
 
-var ano: string= "";
+var ano: string= ""; //XD?//
 
 //jaja
 
