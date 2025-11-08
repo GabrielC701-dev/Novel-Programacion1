@@ -19,3 +19,11 @@ export function leerNumero(pregunta: string): any {
 
     } while (!valido);
 }
+
+var ano: string= "";
+
+//jaja
+
+//probando 1 2
+
+// culo 1 2
