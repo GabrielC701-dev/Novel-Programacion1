@@ -1,18 +1,17 @@
 import { Protagonista, Narrador, Personaje,  } from "./clases";
 import { escenaInicio } from "./clases";
-import { Alex, Maya, Ramirez, LaVoz } from "./clases";
+import { inicializarJuego } from "./clases";
 import readlineSync from "readline-sync";
 import { D1E1,D1E2, D1E3, D2, S_A1, D_A1, D1_A1, D1_A2, D1_A3 } from "./clases";
 
 
 let reiniciar_novela = true
 while(reiniciar_novela){
-const nombre = readlineSync.question("Escribe el nombre de tu protagonista: ");
-const prota = new Protagonista(nombre);
-
 
 // en este documento solo vas  a llamar a la funciones en general, en el otro vas a ir desarollando la logica y los console.log
  function main() {
+  const nombre = readlineSync.question("Escribe el nombre de tu protagonista: ");
+  inicializarJuego(nombre);
   const opcion_escena_inicio = escenaInicio();
 
    switch (opcion_escena_inicio) {

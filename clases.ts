@@ -7,6 +7,7 @@ export class Protagonista {
   rutaActual: string = "";
   estado: any = [];
   color: any = "cyan";
+  
 
   constructor(nombre: string) {
     this.nombre = nombre;
@@ -16,13 +17,14 @@ export class Protagonista {
     console.log(nombreColoreado + texto);
   }
 
-  elegir(opciones: string[]) {
-    const index = readlineSync.keyInSelect(opciones, "Elige una opción:");
+    elegir(opciones: string[]) {
+    const index = readlineSync.keyInSelect(
+      opciones,
+      "Elige una opción:",
+      { cancel: false } 
+    );
     return index;
-
-    
-  }
-}
+  }}
 
 export class Personaje {
     nombre: string;
@@ -67,14 +69,23 @@ export class LaVoz extends Personaje {
     super("La Voz", "blue");
   }
 }
+export let narrador: Narrador;
+export let prota: Protagonista;
+export let alex: Alex;
+export let maya: Maya;
+export let ramirez: Ramirez;
+export let laVoz: LaVoz;
+
+export function inicializarJuego(nombreProta: string) {
+  narrador = new Narrador();
+  prota = new Protagonista(nombreProta);
+  alex = new Alex();
+  maya = new Maya();
+  ramirez = new Ramirez();
+  laVoz = new LaVoz();
+}
 
 
-const narrador = new Narrador();
-const prota = new Protagonista("Operador");
-const alex = new Alex();
-const maya = new Maya();
-const ramirez = new Ramirez();
-const laVoz = new LaVoz();
 
 
 export function escenaInicio() {
@@ -135,6 +146,7 @@ export function S_A1(){
   export function D_A1(){
    narrador.narrar("Que haces?")
     const opcion = prota.elegir([
+      
     "Obedecer sin preguntar",
     "Preguntar por qué",
     "Ignorar la orden por ahora"
