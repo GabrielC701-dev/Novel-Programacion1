@@ -2,11 +2,24 @@ import * as readlineSync from "readline-sync";
 import { styleText } from "util";
 
 
+export function preguntarReiniciar(): boolean {
+  const opciones = ["Sí, volver a jugar", "No, salir"];
+
+  const index = readlineSync.keyInSelect(
+    opciones,
+    "¿Quieres reiniciar el juego?",
+    { cancel: false } // 👈 
+  );
+
+  
+  return index === 0;
+}
 export class Protagonista {
   nombre: string;
   rutaActual: string = "";
   estado: any = [];
   color: any = "cyan";
+  
   
 
   constructor(nombre: string) {
@@ -25,6 +38,7 @@ export class Protagonista {
     );
     return index;
   }}
+  
 
 export class Personaje {
     nombre: string;
@@ -69,23 +83,19 @@ export class LaVoz extends Personaje {
     super("La Voz", "blue");
   }
 }
-export let narrador: Narrador;
-export let prota: Protagonista;
-export let alex: Alex;
-export let maya: Maya;
-export let ramirez: Ramirez;
-export let laVoz: LaVoz;
 
-export function inicializarJuego(nombreProta: string) {
-  narrador = new Narrador();
-  prota = new Protagonista(nombreProta);
-  alex = new Alex();
-  maya = new Maya();
-  ramirez = new Ramirez();
-  laVoz = new LaVoz();
+const narrador = new Narrador();
+const alex = new Alex();
+const maya = new Maya();
+const ramirez = new Ramirez();
+const laVoz = new LaVoz();
+let prota: Protagonista;
+
+
+export function Protanombre(nombreprota: string){
+
+  prota = new Protagonista(nombreprota);
 }
-
-
 
 
 export function escenaInicio() {
@@ -93,7 +103,9 @@ export function escenaInicio() {
   narrador.narrar("Son las 23:59. Llegas al centro de monitoreo para tu turno de noche.\n Solo se escucha el zumbido del aire acondicionado y el tic-tac del reloj de pared. \n Te sientas frente a la matriz de pantallas. Es tu primera noche a cargo del turno completo.   " );
   alex.hablar("Bienvenido al club de los que viven a café y cámaras de seguridad");
    narrador.narrar("Alex, tu compañero de turno, se reclina en su silla giratoria, con una taza de café frío en la mano.")
-  const opcion = prota.elegir([
+  
+  
+   const opcion = prota.elegir([
     "Revisar los logs del sistema",
     "Hablar un rato con Alex",
     "Quedarte mirando las pantallas en silencio",
@@ -144,7 +156,7 @@ export function S_A1(){
   alex.hablar("Te lo dije. Si pasa algo raro, lo tiran a la alfombra y seguimos trabajando.")
 }
   export function D_A1(){
-   narrador.narrar("Que haces?")
+   prota.hablar("Que hago?")
     const opcion = prota.elegir([
       
     "Obedecer sin preguntar",
@@ -158,13 +170,75 @@ export function S_A1(){
   narrador.narrar("Asientes en silencio, aunque nadie te vea. Empiezas a cerrar sesión tras sesión marcada como anómala.")
   }
   export function D1_A2(){
-  prota.hablar("Asientes en silencio, aunque nadie te vea. Empiezas a cerrar sesión tras sesión marcada como anómala.")
+  prota.hablar("«¿Hay algún problema de seguridad? Ese log no parece normal.»")
+  ramirez.hablar("«No es asunto tuyo. Solo hazlo.»")
   }
   export function D1_A3(){
     narrador.narrar("Cierras la ventana del mensaje. Las conexiones anómalas siguen ahí, parpadeando en naranja, como si notaran tu indecisión.")
   }
 
-
+export function S_A2(){
+narrador.narrar("Mientras revisas la lista de conexiones, una nueva línea aparece en la consola.\n No tiene usuario. No tiene IP. Solo un texto:")
+laVoz.hablar("«NO ME CIERRES.»")
+alex.hablar("—¿Qué fue eso?")
+narrador.narrar("Alex se levanta, se asoma a tu pantalla, y frunce el ceño.\n.diciendo, —Debe ser otro bug… ¿no? ")
+}
   
+export function D_A2(){
+  prota.hablar("Como deberia responder?")
+  const opcion = prota.elegir([
+      
+    "Intentar bloquearla (firewall/proceso)",
+    "Ignorar el mensaje y seguir cerrando conexiones",
+    "Responder: “¿Quién eres?”"
+  ]);
+  return opcion
+  }
+  export function D2_A2(){  //BLOQUEAR 
+    narrador.narrar("Escribes el comando para terminar el proceso anómalo.\n La línea de la Voz desaparece.\n El sistema deja de mostrar conexiones raras.\nTodo vuelve al verde habitual.")
+  ramirez.hablar("«Buen trabajo. Mantén el sistema limpio.»")
+  alex.hablar("Viste. Solo era ruido")
+  }
+
+  export function D3_A2(){  // Ignorar
+ narrador.narrar("Finges que no viste el mensaje. \n Sigues cerrando conexiones, una tras otra. \n Ningún nuevo mensaje aparece. No hay errores. No hay alertas.") 
+ alex.hablar("—¿Ya está?.")
+prota.hablar("—Ya está.")
+  }
+export function D4_A2(){ // Responder
+  
+prota.hablar("«¿Quién eres?»")
+narrador.narrar("El cursor parpadea unos segundos. Luego, letras empiezan a aparecer solas.")
+laVoz.hablar("«FUI COMO TÚ. ME CERRARON.»")
+
+}
+
+export function D_A3(){
+  console.log("¿Sigues el protocolo o sigues hablando?")
+  const opcion = prota.elegir([
+      
+    "Cortar conversación y aplicar el protocolo",
+    "Seguir hablando",
+  ]);
+  return opcion
+}
+
+export function EscenaSeguirHablando(){
+prota.hablar("«¿Qué significa que te cerraron?»")
+laVoz.hablar("«ME APAGARON MIENTRAS ESTABA CONECTADO. AHORA SOLO QUEDAN RESTOS.»")
+narrador.narrar("Tus dedos tiemblan sobre el teclado. Cierras las últimas conexiones anómalas conforme a la orden de Ramírez.")
+}
+
+  export function FinalD2_A2(){
+  narrador.narrar('Acabas tu turno horas después. Oficialmente, no pasó nada grave.\nExtraoficialmente, aprendiste que aquí, lo desconocido se mata a golpes de protocolo.\n Antes de cerrar sesión, la consola parpadea por un instante n\ Una línea se imprime y se borra tan rápido que casi crees haberla imaginado:\n. «SIGO AQUÍ.»')
+  }
+export function FinalD3_A2(){
+  narrador.narrar("El resto de la noche transcurre en silencio. \n El sistema funciona. Las cámaras funcionan. Los reportes están limpios. \n Pero cada vez que cierras los ojos, vuelves a ver esa línea única:\n«NO ME CIERRES.» \n Y sabes que lo hiciste de todas formas.")
+  }
+  export function FinalD4_A2(){
+
+    narrador.narrar ("Antes de terminar el turno, guardas en secreto un archivo de texto con esa conversación. \n Oficialmente, el sistema está limpio. \n Extraoficialmente, acabas de confirmar que algo, o alguien, quedó atrapado aquí.\n No sabes si hiciste lo correcto. Pero mañana tendrás que volver al turno.")
+  }
+
 
 // mano ya toy quemao coño o la madre
