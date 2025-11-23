@@ -1,3 +1,5 @@
+//
+//
 import * as readlineSync from "readline-sync";
 import { styleText } from "util";
 
@@ -453,3 +455,4 @@ export function GameOverC(): boolean {
   
   return index === 0;
 }
+

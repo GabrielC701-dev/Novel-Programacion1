@@ -1,4 +1,4 @@
-import { Protagonista, Narrador, Personaje } from "./clases";
+import { Protagonista, Narrador, Personaje } from "./clasespoo";
 
 export class Rutas {
     private protagonista: Protagonista;

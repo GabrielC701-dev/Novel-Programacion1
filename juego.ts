@@ -1,6 +1,6 @@
 // principal.ts
 import * as readlineSync from "readline-sync";
-import { Protagonista, Narrador, Personaje } from "./clases";
+import { Protagonista, Narrador, Personaje } from "./clasespoo";
 import { Rutas } from "./rutaspoo";
 
 export class Juego {
@@ -23,27 +23,25 @@ export class Juego {
     console.log("\nFin del turno nocturno. Gracias por jugar.");
   }
 
-  private iniciarPartida(): void {
+ 
+private iniciarPartida(): void {
     const nombre = readlineSync.question("Escribe el nombre del operador: ");
 
-   
-    this.protagonista = new Protagonista(nombre)
+  
+    this.protagonista = new Protagonista(nombre, "bgCyan", "white", "yellow");
+
+    this.narrador = new Narrador("red");
 
    
-    this.narrador = new Narrador();
-
-    
-    const alex    = new Personaje("Alex",    "bgBlue", );
-    const maya    = new Personaje("Maya",    "bgMagenta",);
-    const ramirez = new Personaje("Ramírez", "bgRed", );
-    const laVoz   = new Personaje("La Voz",  "bgBlack",);
+    const alex    = new Personaje("Alex", "bgYellow", "black");
+    const maya    = new Personaje("Maya", "bgGreen", "white");
+    const ramirez = new Personaje("Ramírez", "bgRed", "white");
+    const laVoz   = new Personaje("La Voz", "bgBlue", "white");
 
     this.personajes = [alex, maya, ramirez, laVoz];
-
-    this.rutas = new Rutas(this.protagonista, this.narrador, this.personajes);
-
+    this.rutas = new Rutas (this.protagonista, this.narrador, this.personajes);
     this.jugarUnaPartida();
-  }
+}
 
   private jugarUnaPartida(): void {
     this.rutas.escenaInicio();

@@ -1,6 +1,7 @@
 import { styleText } from "util";
 import * as readlineSync from "readline-sync";
-type ColoresValidos = 'red' | 'green' | 'blue' | 'yellow' | 'magenta' | 'cyan' | 'white' | 'bgYellow';
+type ColoresValidos = 'red' | 'green' | 'blue' | 'yellow' | 'magenta' | 'cyan' | 'white' | 'black' | 
+  'bgRed' | 'bgGreen' | 'bgBlue' | 'bgYellow' | 'bgMagenta' | 'bgCyan' | 'bgWhite' | 'bgBlack';
 
 //protagonista
 export class Personaje {
