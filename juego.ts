@@ -20,7 +20,7 @@ export class Juego {
       this.juegoActivo = this.preguntarReinicio(); 
     }
 
-    console.log("\nFin del turno nocturno. Gracias por jugar.");
+    console.log("Gracias por jugar!.");
   }
 
   private iniciarPartida(): void {
