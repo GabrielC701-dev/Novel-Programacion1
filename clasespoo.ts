@@ -3,13 +3,13 @@ import * as readlineSync from "readline-sync";
 type ColoresValidos = 'red' | 'green' | 'blue' | 'yellow' | 'magenta' | 'cyan' | 'white' | 'black' | 
   'bgRed' | 'bgGreen' | 'bgBlue' | 'bgYellow' | 'bgMagenta' | 'bgCyan' | 'bgWhite' | 'bgBlack';
 
-//protagonista
+//protagonista (Apartado de color)
 export class Personaje {
   private nombre: string;
   private colorNombreFondo: ColoresValidos;
   private colorDialogo: ColoresValidos;
 
-  constructor(nombre: string, colorNombreFondo: ColoresValidos, colorDialogo: ColoresValidos) {
+  constructor(nombre: string, colorNombreFondo: ColoresValidos, colorDialogo: ColoresValidos){
     this.nombre = nombre;
     this.colorNombreFondo = colorNombreFondo;
     this.colorDialogo = colorDialogo;

@@ -73,7 +73,7 @@ export class Rutas {
     public escenaLogAnomalo(): void {
         const alex = this.getAlex();
         this.narrador.narrar("El reloj del sistema cambia a medianoche... Y luego, por un segundo, muestra algo imposible: 00:00:60.");
-        this.narrador.narrar("La consola emite un pitido. Aparece un nuevo registro de evento con esa misma hora imposible.")
+        this.narrador.narrar("La consola emite un pitido. Aparece un nuevo registro de evento con esa misma hora imposible.");
         alex.hablar("...Eso no está bien.");
 
         const opcion = this.protagonista.elegir(["Reportar el log a Ramírez","Guardar el log en un archivo privado","Borrar el log del sistema"]);
@@ -115,15 +115,13 @@ export class Rutas {
     }
 
     private rutaA_Obedecer(): void {
-        this.narrador.narrar(
-            "Asientes en silencio, aunque nadie te vea. Empiezas a cerrar sesión tras sesión marcada como anómala");
+        this.narrador.narrar("Asientes en silencio, aunque nadie te vea. Empiezas a cerrar sesión tras sesión marcada como anómala");
         this.rutaA_IntervencionVoz();
     }
 
     private rutaA_Preguntar(): void {
         const ramirez = this.getRamirez();
-        this.protagonista.hablar(
-            "¿Hay algún problema de seguridad? Ese log no parece normal.");
+        this.protagonista.hablar("¿Hay algún problema de seguridad? Ese log no parece normal.");
         ramirez.hablar("No es asunto tuyo. Solo hazlo.");
         this.rutaA_IntervencionVoz();
     }
@@ -337,7 +335,6 @@ private gameOverB(): boolean {
     
     const maya = this.getMaya();
     maya.hablar("...Acabas de tirar abajo el sistema completo.");
-    
     this.narrador.narrar("Fin del juego.");
     
     const opciones = ["Volver a la última decisión", "Salir"];
@@ -349,8 +346,6 @@ private finalB_Liberacion(): void {
     const maya = this.getMaya();
     this.narrador.narrar("La próxima vez que el reloj marca medianoche, no hay hora extra.\nNo hay pitidos raros. No hay mensajes.");
     this.narrador.narrar("El edificio vuelve a ser solo un edificio.\nMaya te envía un último mensaje antes de terminar el turno:");
-    
-    
     maya.hablar("No sé si alguien va a creer esto. Pero gracias por no tratarlo como un simple error.");
 }
 
@@ -481,7 +476,6 @@ private rutaC_Fusion(): void {
     
     const laVoz = this.getLaVoz();
     laVoz.hablar("YA NO ESTOY SOLO.");
-    
     this.finalC_Integracion();
 }
 

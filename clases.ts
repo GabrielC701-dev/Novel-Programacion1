@@ -148,10 +148,10 @@ export function DecisionRuta() {
 }
 
 export function OrdenRamirez(){
-
   narrador.narrar("Envías el reporte del log a Ramírez, tu supervisor nocturno,\n no pasa ni un minuto antes de que la respuesta aparezca en la pantalla.");
   ramirez.hablar("«CIERRA TODAS LAS CONEXIONES IRREGULARES. No preguntes.»");
   alex.hablar("Te lo dije. Si pasa algo raro, lo tiran a la alfombra y seguimos trabajando.");
+
 }
   export function DecisionOrdenRamirez(){
    prota.hablar("Que hago?")
@@ -161,7 +161,7 @@ export function OrdenRamirez(){
     "Preguntar por qué",
     "Ignorar la orden por ahora"
   ]);
-  return opcion
+  return opcion;
   }
 
   export function ObedecerSinPreguntar(){
@@ -176,10 +176,10 @@ export function OrdenRamirez(){
   }
 
 export function MensajeVoz(){
-narrador.narrar("Mientras revisas la lista de conexiones, una nueva línea aparece en la consola.\n No tiene usuario. No tiene IP. Solo un texto:");
-laVoz.hablar("«NO ME CIERRES.»");
-alex.hablar("—¿Qué fue eso?");
-narrador.narrar("Alex se levanta, se asoma a tu pantalla, y frunce el ceño.\n.diciendo, —Debe ser otro bug… ¿no? ");
+  narrador.narrar("Mientras revisas la lista de conexiones, una nueva línea aparece en la consola.\n No tiene usuario. No tiene IP. Solo un texto:");
+  laVoz.hablar("«NO ME CIERRES.»");
+  alex.hablar("—¿Qué fue eso?");
+  narrador.narrar("Alex se levanta, se asoma a tu pantalla, y frunce el ceño.\n.diciendo, —Debe ser otro bug… ¿no? ");
 }
   
 export function DecisionMensajeVoz(){
@@ -190,52 +190,49 @@ export function DecisionMensajeVoz(){
     "Ignorar el mensaje y seguir cerrando conexiones",
     "Responder: “¿Quién eres?”"
   ]);
-  return opcion
+  return opcion;
   }
   export function BloquearVoz(){  //BLOQUEAR 
-    narrador.narrar("Escribes el comando para terminar el proceso anómalo.\n La línea de la Voz desaparece.\n El sistema deja de mostrar conexiones raras.\nTodo vuelve al verde habitual.");
+  narrador.narrar("Escribes el comando para terminar el proceso anómalo.\n La línea de la Voz desaparece.\n El sistema deja de mostrar conexiones raras.\nTodo vuelve al verde habitual.");
   ramirez.hablar("«Buen trabajo. Mantén el sistema limpio.»")
   alex.hablar("Viste. Solo era ruido")
   }
 
-  export function IgnorarVoz(){  // Ignorar
- narrador.narrar("Finges que no viste el mensaje. \n Sigues cerrando conexiones, una tras otra. \n Ningún nuevo mensaje aparece. No hay errores. No hay alertas."); 
- alex.hablar("—¿Ya está?.");
-prota.hablar("—Ya está.");
+export function IgnorarVoz(){  // Ignorar
+  narrador.narrar("Finges que no viste el mensaje. \n Sigues cerrando conexiones, una tras otra. \n Ningún nuevo mensaje aparece. No hay errores. No hay alertas."); 
+  alex.hablar("—¿Ya está?.");
+  prota.hablar("—Ya está.");
   }
 export function ResponderVoz(){ // Responder
-  
-prota.hablar("«¿Quién eres?»");
-narrador.narrar("El cursor parpadea unos segundos. Luego, letras empiezan a aparecer solas.");
-laVoz.hablar("«FUI COMO TÚ. ME CERRARON.»");
+  prota.hablar("«¿Quién eres?»");
+  narrador.narrar("El cursor parpadea unos segundos. Luego, letras empiezan a aparecer solas.");
+  laVoz.hablar("«FUI COMO TÚ. ME CERRARON.»");
 
 }
 
 export function DescisionContinuar(){
   console.log("¿Sigues el protocolo o sigues hablando?");
   const opcion = prota.elegir([
-      
     "Cortar conversación y aplicar el protocolo",
-    "Seguir hablando",
+    "Seguir hablando"
   ]);
-  return opcion
+  return opcion;
 }
 
 export function EscenaSeguirHablando(){
-prota.hablar("«¿Qué significa que te cerraron?»");
-laVoz.hablar("«ME APAGARON MIENTRAS ESTABA CONECTADO. AHORA SOLO QUEDAN RESTOS.»");
-narrador.narrar("Tus dedos tiemblan sobre el teclado. Cierras las últimas conexiones anómalas conforme a la orden de Ramírez.");
+  prota.hablar("«¿Qué significa que te cerraron?»");
+  laVoz.hablar("«ME APAGARON MIENTRAS ESTABA CONECTADO. AHORA SOLO QUEDAN RESTOS.»");
+  narrador.narrar("Tus dedos tiemblan sobre el teclado. Cierras las últimas conexiones anómalas conforme a la orden de Ramírez.");
 }
 
-  export function FinalD2_A2(){
+export function FinalD2_A2(){
   narrador.narrar('Acabas tu turno horas después. Oficialmente, no pasó nada grave.\nExtraoficialmente, aprendiste que aquí, lo desconocido se mata a golpes de protocolo.\n Antes de cerrar sesión, la consola parpadea por un instante n\ Una línea se imprime y se borra tan rápido que casi crees haberla imaginado:\n. «SIGO AQUÍ.»');
-  }
+}
 export function FinalD3_A2(){
   narrador.narrar("El resto de la noche transcurre en silencio. \n El sistema funciona. Las cámaras funcionan. Los reportes están limpios. \n Pero cada vez que cierras los ojos, vuelves a ver esa línea única:\n«NO ME CIERRES.» \n Y sabes que lo hiciste de todas formas.");
-  }
-  export function FinalD4_A2(){
-
-    narrador.narrar ("Antes de terminar el turno, guardas en secreto un archivo de texto con esa conversación. \n Oficialmente, el sistema está limpio. \n Extraoficialmente, acabas de confirmar que algo, o alguien, quedó atrapado aquí.\n No sabes si hiciste lo correcto. Pero mañana tendrás que volver al turno.");
+}
+export function FinalD4_A2(){
+  narrador.narrar ("Antes de terminar el turno, guardas en secreto un archivo de texto con esa conversación. \n Oficialmente, el sistema está limpio. \n Extraoficialmente, acabas de confirmar que algo, o alguien, quedó atrapado aquí.\n No sabes si hiciste lo correcto. Pero mañana tendrás que volver al turno.");
   }
 
   

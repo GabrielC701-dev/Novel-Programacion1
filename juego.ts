@@ -23,16 +23,13 @@ export class Juego {
     console.log("\nFin del turno nocturno. Gracias por jugar.");
   }
 
- 
-private iniciarPartida(): void {
-    const nombre = readlineSync.question("Escribe el nombre del operador: ");
+  private iniciarPartida(): void {
+    const nombre = readlineSync.question("Escriba su nombre: ");
 
-  
     this.protagonista = new Protagonista(nombre, "bgCyan", "white", "yellow");
 
     this.narrador = new Narrador("red");
 
-   
     const alex    = new Personaje("Alex", "bgYellow", "black");
     const maya    = new Personaje("Maya", "bgGreen", "white");
     const ramirez = new Personaje("Ramírez", "bgRed", "white");
