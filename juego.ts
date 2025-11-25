@@ -30,7 +30,7 @@ export class Juego {
 
     this.narrador = new Narrador("red");
 
-    const alex    = new Personaje("Alex", "bgYellow", "black");
+    const alex    = new Personaje("Alex", "bgCyan", "black");
     const maya    = new Personaje("Maya", "bgGreen", "white");
     const ramirez = new Personaje("Ramírez", "bgRed", "white");
     const laVoz   = new Personaje("La Voz", "bgBlue", "white");
