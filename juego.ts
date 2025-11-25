@@ -26,14 +26,13 @@ export class Juego {
   private iniciarPartida(): void {
     const nombre = readlineSync.question("Escriba su nombre: ");
 
-    this.protagonista = new Protagonista(nombre, "bgCyan", "white", "yellow");
+    this.protagonista = new Protagonista(nombre, "bgYellow", "white", "yellow");
+    this.narrador = new Narrador("red", "italic");
 
-    this.narrador = new Narrador("red");
-
-    const alex    = new Personaje("Alex", "bgCyan", "black");
+    const alex    = new Personaje("Alex", "bgCyan", "white");
     const maya    = new Personaje("Maya", "bgGreen", "white");
     const ramirez = new Personaje("Ramírez", "bgRed", "white");
-    const laVoz   = new Personaje("La Voz", "bgBlue", "white");
+    const laVoz   = new Personaje("La Voz", "bgMagenta", "white");
 
     this.personajes = [alex, maya, ramirez, laVoz];
     this.rutas = new Rutas (this.protagonista, this.narrador, this.personajes);
@@ -47,15 +46,12 @@ export class Juego {
   private preguntarReinicio(): boolean {
     const opciones = ["Sí, volver a jugar", "No, salir"];
 
-    const index = readlineSync.keyInSelect(
-      opciones,
+    const index = readlineSync.keyInYNStrict(
       "¿Quieres reiniciar el juego?",
-      { cancel: false }
     );
 
-    return index === 0; 
+    return index;
   }
 }
-
 
 (new Juego()).inicio();

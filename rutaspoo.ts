@@ -28,7 +28,7 @@ export class Rutas {
     }
 
     public escenaInicio(): void {
-        this.narrador.narrar("Son las 23:59. El edificio del Centro de Monitoreo de Seguridad está casi vacío.\nSolo se escucha el zumbido del aire acondicionado y el tic-tac del reloj de pared.\nTe sientas frente a la matriz de pantallas. Es tu primera noche a cargo del turno completo..");
+        this.narrador.narrar("Son las 23:59. El edificio del Centro de Monitoreo de Seguridad está casi vacío.\nSolo se escucha el zumbido del aire acondicionado y el tic-tac del reloj de pared.\nTe sientas frente a la matriz de pantallas. Es tu primera noche a cargo del turno completo..\n");
         const alex = this.getAlex();
         alex.hablar("-Bienvenido al cementerio de los insomnes. Si nadie se queja, nadie nos molesta.");
 
@@ -95,7 +95,7 @@ export class Rutas {
     public rutaA(): void {
         const ramirez = this.getRamirez();
         const alex = this.getAlex();
-        ramirez.hablar("«CIERRA TODAS LAS CONEXIONES EXTRAñAS. No preguntes.».");
+        ramirez.hablar("«CIERRA TODAS LAS CONEXIONES EXTRAÑAS. No preguntes.».");
         this.narrador.narrar("La orden llega seca, sin contexto. Puro protocolo.");
         alex.hablar("—Te lo dije. Si pasa algo raro, lo tiran a la alfombra y seguimos trabajando.");
 
@@ -185,7 +185,9 @@ export class Rutas {
         this.narrador.narrar("Finges que no viste el mensaje. \n Sigues cerrando conexiones, una tras otra. \n Ningún nuevo mensaje aparece. No hay errores. No hay alertas.");
         this.narrador.narrar("Al terminar el turno, juras ver una línea parpadear y borrarse sola:\n SIGO AQUÍ.");
     }
-// Ruta b
+
+// ================= RUTA B – LOS ECOS =================
+
 public rutaB(): void {
     this.narrador.narrar("En lugar de borrar el log o reportarlo, lo copias a un archivo privado.\nLo guardas en una carpeta que solo tú puedes ver.");
     this.narrador.narrar("A los pocos minutos, una notificación aparece en la esquina de la pantalla.\nEs un mensaje del área de Sistemas.");
@@ -353,7 +355,8 @@ private finalB_DespertarAmbiguo(): void {
     this.narrador.narrar("No sabes si lo ayudaste o lo mataste definitivamente.\nPero la hora extra desaparece.\nY tú ya no puedes mirar el sistema como una simple herramienta.");
 }
 
-// ruta c
+// ================= RUTA C – INTEGRACIÓN =================
+
 public rutaC(): void {
     this.narrador.narrar("Decides borrar el log anómalo del sistema.\nUn par de teclas, un comando, y el registro desaparece.");
     this.narrador.narrar("La consola se queda en silencio unos segundos.\nLuego, una nueva línea aparece, sin hora, sin usuario.");

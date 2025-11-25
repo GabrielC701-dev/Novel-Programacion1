@@ -1,7 +1,8 @@
 import { styleText } from "util";
 import * as readlineSync from "readline-sync";
-type ColoresValidos = 'red' | 'green' | 'blue' | 'yellow' | 'magenta' | 'cyan' | 'white' | 'black' | 
-  'bgRed' | 'bgGreen' | 'bgBlue' | 'bgYellow' | 'bgMagenta' | 'bgCyan' | 'bgWhite' | 'bgBlack';
+type ColoresValidos = | 'red' | 'green' | 'blue' | 'yellow' | 'magenta' | 'cyan' | 'white' | 'black'
+  | 'gray' | 'grey' | 'bgRed' | 'bgGreen' | 'bgBlue' | 'bgYellow' | 'bgMagenta' | 'bgCyan' 
+  | 'bgWhite' | 'bgBlack' | 'bgGray' | 'bgGrey'   | 'bold' | 'italic' | 'underline' | 'inverse' | 'strikethrough' | 'dim';
 
 //protagonista (Apartado de color)
 export class Personaje {
@@ -71,17 +72,19 @@ export class Protagonista {
 
 }
 
-// narrador
+//narrador
 export class Narrador {
   private colorNarracion: ColoresValidos;
+  private style: ColoresValidos;
 
-  constructor(colorNarracion: ColoresValidos) {
+  constructor(colorNarracion: ColoresValidos, style: ColoresValidos = 'italic'){
     this.colorNarracion = colorNarracion;
+    this.style = style;
   }
 
   public narrar(texto: string): void {
-    const textoColoreado = styleText(
-      this.colorNarracion, texto);
-    console.log("\n" + textoColoreado);
+    const estiloCompleto = [this.colorNarracion, this.style];
+    const textoColor = styleText(estiloCompleto, texto);
+    console.log("\n" + textoColor);
   }
 }
